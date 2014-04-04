@@ -1,0 +1,20 @@
+{
+    "name": "expbenson/app-info",
+    "description": "Read information from App.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "benson",
+            "email": "expbenson@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "rodneyrehm/plist": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Expbenson\\AppInfo\\": "src"
+        }
+    }
+}

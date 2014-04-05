@@ -10,8 +10,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "rodneyrehm/plist": "dev-master",
-        "tufanbarisyildirim/php-apk-parser":"dev-master"
+        "rodneyrehm/plist": "@dev",
+        "tufanbarisyildirim/php-apk-parser":"@dev"
     },
     "autoload": {
         "psr-4": {

@@ -10,7 +10,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "rodneyrehm/plist": "@dev",
+        "rodneyrehm/plist": "~2.0",
         "tufanbarisyildirim/php-apk-parser":"@dev"
     },
     "autoload": {

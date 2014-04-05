@@ -8,12 +8,32 @@
 
 namespace Expbenson\AppInfo;
 
+use ApkParser\Parser;
+
 class AndroidApp extends App {
 
-    public function __construct()
+    public function __construct($file)
     {
-        $this->name = 'android app';
-        $this->version = '1.1';
-        $this->versionCode = 3;
+        $this->file = $file;
+        $this->parseDescriptionFile();
+    }
+
+    protected function parseDescriptionFile()
+    {
+
+        try {
+            $apk = new Parser($this->file);
+        } catch (\Exception $e) {
+            throw AppInfoException::invalidFileType($e->getMessage());
+        }
+
+        $manifest = $apk->getManifest();
+        try {
+            $this->name = $manifest->getPackageName();
+            $this->version = $manifest->getVersionName();
+            $this->versionCode = $manifest->getVersionCode();
+        } catch (\Exception $e) {
+            throw AppInfoException::parseFail($e->getMessage());
+        }
     }
 } 

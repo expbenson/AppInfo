@@ -10,11 +10,15 @@ namespace Expbenson\AppInfo;
 
 abstract class App {
 
+    protected $file;
+
     protected $name;
 
     protected $version;
 
     protected $versionCode;
+
+    abstract protected function parseDescriptionFile();
 
     public function getName()
     {

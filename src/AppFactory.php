@@ -8,14 +8,19 @@
 
 namespace Expbenson\AppInfo;
 
-class AppFactory {
+class AppFactory
+{
 
-    public static function Create($type)
+    public static function Create($file)
     {
-        if ('ipa' === $type) {
-            return new IosApp();
+        $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+
+        if ('ipa' === $extension) {
+            return new IosApp('ios.ipa');
+        } elseif ('apk' === $extension) {
+            return new AndroidApp('android.apk');
         } else {
-            return new AndroidApp();
+            throw AppInfoException::invalidFileType();
         }
     }
 } 

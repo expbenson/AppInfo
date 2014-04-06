@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-	    "rodneyrehm/plist": "v2.0"
+	    "rodneyrehm/plist": "dev-master"
     },
     "autoload": {
         "psr-4": {

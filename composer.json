@@ -9,8 +9,7 @@
         }
     ],
     "require": {
-	    "rodneyrehm/plist": "v2.0",
-        "tufanbarisyildirim/php-apk-parser":"dev-master"
+	    "rodneyrehm/plist": "dev-master"
     },
     "autoload": {
         "psr-4": {

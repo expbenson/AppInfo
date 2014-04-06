@@ -8,10 +8,9 @@
             "email": "expbenson@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "rodneyrehm/plist": "~2.0",
-        "tufanbarisyildirim/php-apk-parser":"@dev"
+        "rodneyrehm/plist": "dev-master",
+        "tufanbarisyildirim/php-apk-parser":"dev-master"
     },
     "autoload": {
         "psr-4": {

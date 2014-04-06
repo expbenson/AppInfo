@@ -10,14 +10,24 @@ namespace Expbenson\AppInfo;
 
 use ApkParser\Parser;
 
+/**
+ * Class AndroidApp
+ * @package Expbenson\AppInfo
+ */
 class AndroidApp extends App {
 
+    /**
+     * @param $file
+     */
     public function __construct($file)
     {
         $this->file = $file;
         $this->parseDescriptionFile();
     }
 
+    /**
+     * @throws AppInfoException
+     */
     protected function parseDescriptionFile()
     {
 

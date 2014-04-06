@@ -8,9 +8,18 @@
 
 namespace Expbenson\AppInfo;
 
+/**
+ * Class AppFactory
+ * @package Expbenson\AppInfo
+ */
 class AppFactory
 {
 
+    /**
+     * @param $file
+     * @return AndroidApp|IosApp
+     * @throws AppInfoException
+     */
     public static function Create($file)
     {
         $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));

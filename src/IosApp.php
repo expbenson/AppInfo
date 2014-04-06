@@ -12,14 +12,24 @@ use CFPropertyList\CFPropertyList;
 use CFPropertyList\IOException;
 use CFPropertyList\PListException;
 
+/**
+ * Class IosApp
+ * @package Expbenson\AppInfo
+ */
 class IosApp extends App
 {
+    /**
+     * @param $file
+     */
     public function __construct($file)
     {
         $this->file = $file;
         $this->parseDescriptionFile();
     }
 
+    /**
+     * @throws AppInfoException
+     */
     protected function parseDescriptionFile()
     {
         $ipa = new \ZipArchive();

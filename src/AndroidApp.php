@@ -14,7 +14,13 @@ use ApkParser\Parser;
  * Class AndroidApp
  * @package Expbenson\AppInfo
  */
-class AndroidApp extends App {
+class AndroidApp extends App
+{
+
+    /**
+     * @var string
+     */
+    private $manifest;
 
     /**
      * @param $file
@@ -37,13 +43,27 @@ class AndroidApp extends App {
             throw AppInfoException::invalidFileType($e->getMessage());
         }
 
-        $manifest = $apk->getManifest();
+        $this->manifest = $apk->getManifest();
+//        echo sprintf("\n\n%s\n", $this->manifest->getXmlString());
         try {
-            $this->name = $manifest->getPackageName();
-            $this->version = $manifest->getVersionName();
-            $this->versionCode = $manifest->getVersionCode();
+            $this->id          = $this->manifest->getPackageName();
+            $this->name        = $this->getAppName();
+            $this->version     = $this->manifest->getVersionName();
+            $this->versionCode = $this->manifest->getVersionCode();
         } catch (\Exception $e) {
             throw AppInfoException::parseFail($e->getMessage());
+        }
+    }
+
+    /**
+     * @return string
+     */
+    private function getAppName()
+    {
+        if (preg_match('/<application.+?name="([^"]+)"/', $this->manifest, $match)) {
+            return $match[1];
+        } else {
+            return $this->getId();
         }
     }
 } 

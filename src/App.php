@@ -17,6 +17,11 @@ abstract class App {
     /**
      * @var string
      */
+    protected $id;
+
+    /**
+     * @var string
+     */
     protected $file;
 
     /**
@@ -38,6 +43,11 @@ abstract class App {
      * @return mixed
      */
     abstract protected function parseDescriptionFile();
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return string

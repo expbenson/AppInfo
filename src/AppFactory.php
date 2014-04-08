@@ -25,9 +25,9 @@ class AppFactory
         $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
         if ('ipa' === $extension) {
-            return new IosApp('ios.ipa');
+            return new IosApp($file);
         } elseif ('apk' === $extension) {
-            return new AndroidApp('android.apk');
+            return new AndroidApp($file);
         } else {
             throw AppInfoException::invalidFileType();
         }

@@ -8,6 +8,12 @@
 
 require 'vendor/autoload.php';
 
-$app = Expbenson\AppInfo\AppFactory::Create('apk');
+$app = Expbenson\AppInfo\AppFactory::Create('android.apk');
 
-echo sprintf("Name:\t%s\nVersion:\t%s\nVersionCode:\t%s\n", $app->getName(), $app->getVersion(), $app->getVersionCode());
+echo sprintf(
+    "\nName:\t\t%s\nVersion:\t%s\nVersionCode:\t%s\n\n",
+    $app->getName(),
+    $app->getVersion(),
+    $app->getVersionCode()
+//    $app->generatePlist('http://www.baidu.com/')
+);
